@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Jehu&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            hello-hexo
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h1 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello-hexo"></a>hello-hexo</h1><p>本文是建立这个博客写下的第一篇博文，记录这个博客建立的过程，今后要多写博客，不管有没有人看，分享一下自己的一些技术上的学习过程，和生活的一些体会等。</p>
+<p>接下来这篇文章主要讲述我搭建博客的过程。</p>
+<h2 id="安装环境准备"><a href="#安装环境准备" class="headerlink" title="安装环境准备"></a>安装环境准备</h2><ul>
+<li>git</li>
+<li>node.js</li>
+<li>github账号和腾讯云域名</li>
+</ul>
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><p>安装<a href="https://www.git-scm.com/download/" target="_blank" rel="noopener">git</a><br>选择对应的系统版本下载即可</p>
+<p>安装<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">node.js</a><br>选择对应的系统版本下载即可</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装 hexo 命令行工具  </span><br><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#创建一个你要放你的blog文件的文件夹，我这里是blog  </span><br><span class="line">#初始化hexo  </span><br><span class="line">$ hexo init blog  </span><br><span class="line">$ cd blog  </span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>新建完成后，指定文件夹的目录如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.  </span><br><span class="line">├── _config.yml  </span><br><span class="line">├── package.json  </span><br><span class="line">├── scaffolds  </span><br><span class="line">├── source  </span><br><span class="line">|   ├── _drafts  </span><br><span class="line">|   └── _posts  </span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<p>在_config.yml文件中修改对应的配置，我这里修改了titel 网站标题和author 作者两项，其他可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>进行修改。</p>
+<h2 id="查看博客"><a href="#查看博客" class="headerlink" title="查看博客"></a>查看博客</h2><p>配置完成后，可以运行  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$hexo generate  </span><br><span class="line">$hexo server</span><br></pre></td></tr></table></figure>
+
+<p>生成静态文件并启动服务器，默认可以在<br><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 查看。</p>
+<h2 id="hexo主题设置"><a href="#hexo主题设置" class="headerlink" title="hexo主题设置"></a>hexo主题设置</h2><p>hexo支持主题的自定义，我采用的是<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next主题</a>，是用的比较多的一个主题。</p>
+<p>首先下载主题,我这里采用git clone 的方式进行下载  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;iissnan&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>然后设置主题，修改根目录下的_config.yml文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>接下来对主题里的一些选项进行修改，首先修改菜单栏，添加你需要的页面，我这里添加关于页面about  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:  </span><br><span class="line"> home: &#x2F; || home  </span><br><span class="line"> about: &#x2F;about&#x2F; || user  </span><br><span class="line"> #tags: &#x2F;tags&#x2F; || tags  </span><br><span class="line"> #categories: &#x2F;categories&#x2F; || th  </span><br><span class="line"> archives: &#x2F;archives&#x2F; || archive  </span><br><span class="line"> # schedule: &#x2F;schedule&#x2F; || calendar  </span><br><span class="line"> # sitemap: &#x2F;sitemap.xml || sitemap  </span><br><span class="line"> # commonweal: &#x2F;404&#x2F; || heartbeat</span><br></pre></td></tr></table></figure>
+
+<p>其他的根据需要修改即可。<br>配置访客统计，next集成了busuanzi的访问统计功能，只要在主题的配置文件中打开即可。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Show PV&#x2F;UV of the website&#x2F;page with busuanzi.  </span><br><span class="line"># Get more information on http:&#x2F;&#x2F;ibruce.info&#x2F;2015&#x2F;04&#x2F;04&#x2F;busuanzi&#x2F;  </span><br><span class="line"># 增加不蒜子访问数量统计  </span><br><span class="line">busuanzi_count:  </span><br><span class="line"> enable: true  </span><br><span class="line"> # custom uv span for the whole site  </span><br><span class="line"> site_uv: true  </span><br><span class="line"> site_uv_header:  访问人数  </span><br><span class="line"> site_uv_footer:  </span><br><span class="line"> # custom pv span for the whole site  </span><br><span class="line"> site_pv: true  </span><br><span class="line"> site_pv_header:  访问总量  </span><br><span class="line"> site_pv_footer: 次  </span><br><span class="line"> page_pv: true  </span><br><span class="line"> page_pv_header:  浏览  </span><br><span class="line"> page_pv_footer: 次</span><br></pre></td></tr></table></figure>
+
+<p>将enable 设为true即可</p>
+<p>备注：由于busuanzi(不蒜子)的网址更新,导致了使用Hexo Next主题时统计浏览数失效.<br>解决方法:到hexo的themes文件夹下, 进入\themes\next\layout_third-party\analytics打开: busuanzi-counter.swig</p>
+<p>将src=“<a href="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js”" target="_blank" rel="noopener">https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js”</a></p>
+<p>修改为src=“<a href="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js”" target="_blank" rel="noopener">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js”</a></p>
+<p>即可。</p>
+<p>接下来博客已经搭建好了我们需要将我们生成的静态文件部署到我们的github上去，就可以通过github访问我们的博客了。</p>
+<h2 id="github设置"><a href="#github设置" class="headerlink" title="github设置"></a>github设置</h2><p>首先注册一个github账号，我本来就有，这里略去。<br>然后新建一个仓库，要注意的是，我们建的项目名一定要是 用户名.github.io 的形式，这样才能生成我们的页面。<br>仓库建立好之后，我们需要将内容同步到我们的github上去。</p>
+<p>首先我们配置全局的git 账号和邮箱  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –-global user.name “xxxx”  &#x2F;&#x2F;(“”的账号是刚才Github里面自己注册的账号)   </span><br><span class="line">git config –-global user.email “xxxx@qq.com” &#x2F;&#x2F;(&quot;&quot;的邮箱是你自己注册的邮箱)</span><br></pre></td></tr></table></figure>
+
+<p>然后生成ssh密钥，并设置到github上  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.ssh   </span><br><span class="line">ssh-keygen -t rsa -C “xxxx@qq.com” &#x2F;&#x2F;打自己的邮箱</span><br></pre></td></tr></table></figure>
+
+<p>接下来，复制生成的密钥 id_rsa.pub，到github的设置页面的 SSH and GPG keys 里面<br>新建一个，并把密钥的内容粘贴上去。<br>测试ssh是否成功  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="上传hexo"><a href="#上传hexo" class="headerlink" title="上传hexo"></a>上传hexo</h2><p>安装部署到github上的插件依赖  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<p>然后修改根目录下的_config.yml文件夹<br>deploy:<br>type: git<br>repo: <a href="mailto:git@github.com">git@github.com</a>:xxxx/xxxxx.github.io.git //(这里改成自己的用户名和用户名加域名,可以在仓库的右上角直接复制)<br>branch: master<br>接下来运行  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>即可完成部署。</p>
+<h2 id="查看博客-1"><a href="#查看博客-1" class="headerlink" title="查看博客-1"></a>查看博客-1</h2><p>过几分钟后，在浏览器输入 用户名.github.io 即可看到自己的博客。</p>
+<p>博客搭建成功</p>
+
+    </div>
+
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>-<a class="flink" href="https://github.com/sanjinhub/hexo-theme-geek" target="_blank" rel="noopener">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

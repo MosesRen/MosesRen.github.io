@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Jehu&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            VSCODE配置
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h2 id="1安装官方插件"><a href="#1安装官方插件" class="headerlink" title="1安装官方插件"></a>1安装官方插件</h2><p><img src="https://img-blog.csdn.net/20171224082413655?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzIwNTg3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<h2 id="2-VSCODE-相关概念"><a href="#2-VSCODE-相关概念" class="headerlink" title="2-VSCODE-相关概念"></a>2-VSCODE-相关概念</h2><p>vs code 单次运行一个脚本视为一个task，配置文件为tasks.json。整个文件和多个文件夹视为workspace，配置文件为setting.json，调试环境配置为launch.json。这些文件需要手动编辑，编辑好后会替代默认配置生效。</p>
+<h2 id="3-setting-文件配置"><a href="#3-setting-文件配置" class="headerlink" title="3-setting-文件配置"></a>3-setting-文件配置</h2><p>1.打开一个 .py文件,然后点状态栏右下角 python</p>
+<p>2.再点图中的python 语言基础设置</p>
+<p>3.修改工作空间settings.json 配置文件中的”python.pythonPath”为自己的解释器路径,工作空间配置可以代替用户配置,用户配置可以代替默认配置</p>
+<p>4.配置 pylint 路径,因为默认 pylint 检查是开启的</p>
+<p><img src="https://img-blog.csdn.net/20171224085803990?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzIwNTg3Nw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°"></p>
+<h2 id="5-配置运行参数-配置tasks-json-运行-python-脚本"><a href="#5-配置运行参数-配置tasks-json-运行-python-脚本" class="headerlink" title="5-配置运行参数-配置tasks-json-运行-python-脚本"></a>5-配置运行参数-配置tasks-json-运行-python-脚本</h2><p>1.在打开的 py 文件中按 command+shift+B (windows 系统上 command 是 ctrl键)运行,点击配置生成任务</p>
+<p>2.使用默认模版生成任务配置文件 tasks.json</p>
+<p>3.点选 others</p>
+<p>4.修改 tasks.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;  </span><br><span class="line"> &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558  </span><br><span class="line"> &#x2F;&#x2F; for the documentation about the tasks.json format  </span><br><span class="line"> &quot;version&quot;: &quot;2.0.0&quot;,  </span><br><span class="line"> &quot;tasks&quot;: [  </span><br><span class="line"> &#123;  </span><br><span class="line"> &quot;label&quot;: &quot;python&quot;,  </span><br><span class="line"> &quot;type&quot;: &quot;shell&quot;,  </span><br><span class="line"> &quot;command&quot;: &quot;C:&#x2F;Users&#x2F;yanta&#x2F;AppData&#x2F;Local&#x2F;Programs&#x2F;Python&#x2F;Python36&#x2F;python&quot;,  </span><br><span class="line"> &quot;args&quot;: [  </span><br><span class="line"> &quot;$&#123;file&#125;&quot;  </span><br><span class="line"> ],  </span><br><span class="line"> &quot;group&quot;: &#123;  </span><br><span class="line"> &quot;kind&quot;: &quot;build&quot;,  </span><br><span class="line"> &quot;isDefault&quot;: true  </span><br><span class="line"> &#125;  </span><br><span class="line"> &#125;  </span><br><span class="line"> ]  </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-调试-单步运行-配置-launch-json"><a href="#6-调试-单步运行-配置-launch-json" class="headerlink" title="6-调试-单步运行-配置-launch-json"></a>6-调试-单步运行-配置-launch-json</h2><p>前面都配置正常的话,此处不需要配置也可以正常运行,若不能正常运行可以尝试重启vscode再试,如果需要自定义调试配置,比如远程调试之类的话,可以添加 launch.json 并且修改其中相应的配置参数:<br>1.点左侧的甲虫图标,然后点左上角没有配置,再点添加配置即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&quot;version&quot;: &quot;0.2.0&quot;,  </span><br><span class="line"> &quot;configurations&quot;: [  </span><br><span class="line"> &#123;  </span><br><span class="line"> &quot;name&quot;: &quot;Python&quot;,  </span><br><span class="line"> &quot;type&quot;: &quot;python&quot;,  </span><br><span class="line"> &quot;request&quot;: &quot;launch&quot;,  </span><br><span class="line"> &quot;stopOnEntry&quot;: false,  </span><br><span class="line"> &#x2F;&#x2F;&quot;pythonPath&quot;: &quot;C:&#x2F;Python27&#x2F;python&quot;,  </span><br><span class="line"> &quot;pythonPath&quot;: &quot;C:&#x2F;Users&#x2F;yanta&#x2F;AppData&#x2F;Local&#x2F;Programs&#x2F;Python&#x2F;Python36&#x2F;python&quot;,  </span><br><span class="line"> &quot;program&quot;: &quot;$&#123;file&#125;&quot;,  </span><br><span class="line"> &quot;cwd&quot;: &quot;$&#123;workspaceRoot&#125;&quot;,  </span><br><span class="line"> &quot;env&quot;: &#123;&#125;,  </span><br><span class="line"> &quot;envFile&quot;: &quot;$&#123;workspaceRoot&#125;&#x2F;.env&quot;,  </span><br><span class="line"> &quot;debugOptions&quot;: [  </span><br><span class="line"> &quot;WaitOnAbnormalExit&quot;,  </span><br><span class="line"> &quot;WaitOnNormalExit&quot;,  </span><br><span class="line"> &quot;RedirectOutput&quot;  </span><br><span class="line"> ]  </span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>2.在行号的左侧单击即可设置断点,点左上角调试两个字右侧的绿色按钮,即可开始调试,上方会出现调试面板,有单步,继续等功能</p>
+
+    </div>
+
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a>-<a class="flink" href="https://github.com/sanjinhub/hexo-theme-geek" target="_blank" rel="noopener">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>
