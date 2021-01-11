@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Jehu Ren">
+  <meta name="keywords" content="">
+  <title>javaIO - Jehu</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"renjiahui.cn","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Jehu</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="javaIO">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-07-10 00:00" pubdate>
+        2019年7月10日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">javaIO</h1>
+            
+            <div class="markdown-body">
+              <p>Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。</p>
+<h2 id="BIO、NIO、AIO的区别"><a href="#BIO、NIO、AIO的区别" class="headerlink" title="BIO、NIO、AIO的区别"></a>BIO、NIO、AIO的区别</h2><ol>
+<li>BIO 就是传统的 java.io 包，它是基于流模型实现的，交互的方式是同步、阻塞方式，也就是说在读入输入流或者输出流时，在读写动作完成之前，线程会一直阻塞在那里，它们之间的调用时可靠的线性顺序。它的有点就是代码比较简单、直观；缺点就是 IO 的效率和扩展性很低，容易成为应用性能瓶颈。（同步、阻塞）</li>
+<li>NIO 是 Java 1.4 引入的 java.nio 包，提供了 Channel、Selector、Buffer 等新的抽象，可以构建多路复用的、同步非阻塞 IO 程序，同时提供了更接近操作系统底层高性能的数据操作方式。（同步、非阻塞）</li>
+<li>AIO 是 Java 1.7 之后引入的包，是 NIO 的升级版本，提供了异步非堵塞的 IO 操作方式，所以人们叫它 AIO（Asynchronous IO），异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。（异步，阻塞）</li>
+</ol>
+<h2 id="IO的类型"><a href="#IO的类型" class="headerlink" title="IO的类型"></a>IO的类型</h2><ul>
+<li>InputStream、OutputStream 基于字节操作的 IO</li>
+<li>Writer、Reader 基于字符操作的 IO</li>
+<li>File 基于磁盘操作的 IO</li>
+<li>Socket 基于网络操作的 IO</li>
+</ul>
+<h2 id="Java-IO"><a href="#Java-IO" class="headerlink" title="Java IO"></a>Java IO</h2><p><img src="https://gitee.com/null_885_6403/pic/raw/master/img/20210111201940.jpg" srcset="/img/loading.gif" alt=""></p>
+<h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><ul>
+<li>即 <code>Java New IO</code></li>
+<li>是1个全新的、 <code>JDK 1.4</code>后提供的 <code>IO API</code></li>
+<li>提供了与标准<code>IO</code>不同的<code>IO</code>工作方式</li>
+<li>可替代 标准<code>Java IO</code> 的<code>IO API</code></li>
+</ul>
+<p><img src="https://gitee.com/null_885_6403/pic/raw/master/img/20210111201952.png" srcset="/img/loading.gif" alt=""></p>
+<p>主要组件：</p>
+<p><strong>Channel ：</strong>相当于IO中的stream，但是Channel是双向的，既可以用来进行读操作，又可以用来进行写操作。</p>
+<ul>
+<li>FileChannel：作用于IO文件流</li>
+<li>DatagramChannel：作用于UDP协议</li>
+<li>SocketChannel：作用于TCP协议</li>
+<li>ServerSocketChannel：作用于TCP协议</li>
+</ul>
+<p><strong>Buffer：</strong>缓冲区，用在线程和channel之间，来缓存数据</p>
+<p><strong>Selector：</strong> 选择器是NIO的核心，它是channel的管理者通过执行select()阻塞方法，监听是否有channel准备好，一旦有数据可读，此方法的返回值是SelectionKey的数量</p>
+<p>NIO代码示例</p>
+<p>服务端：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.blog.test.NioTest;<br><br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.net.InetSocketAddress;<br><span class="hljs-keyword">import</span> java.nio.ByteBuffer;<br><span class="hljs-keyword">import</span> java.nio.channels.*;<br><span class="hljs-keyword">import</span> java.nio.charset.Charset;<br><span class="hljs-keyword">import</span> java.util.Iterator;<br><span class="hljs-keyword">import</span> java.util.Set;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyNioServer</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Selector selector;          <span class="hljs-comment">//创建一个选择器</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> port = <span class="hljs-number">8686</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> BUF_SIZE = <span class="hljs-number">10240</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initServer</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        <span class="hljs-comment">//创建通道管理器对象selector</span><br>        <span class="hljs-keyword">this</span>.selector=Selector.open();<br><br>        <span class="hljs-comment">//创建一个通道对象channel</span><br>        ServerSocketChannel channel = ServerSocketChannel.open();<br>        channel.configureBlocking(<span class="hljs-keyword">false</span>);       <span class="hljs-comment">//将通道设置为非阻塞</span><br>        channel.socket().bind(<span class="hljs-keyword">new</span> InetSocketAddress(port));       <span class="hljs-comment">//将通道绑定在8686端口</span><br><br>        <span class="hljs-comment">//将上述的通道管理器和通道绑定，并为该通道注册OP_ACCEPT事件</span><br>        <span class="hljs-comment">//注册事件后，当该事件到达时，selector.select()会返回（一个key），如果该事件没到达selector.select()会一直阻塞</span><br>        SelectionKey selectionKey = channel.register(selector,SelectionKey.OP_ACCEPT);<br><br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>)&#123;       <span class="hljs-comment">//轮询</span><br>            selector.select();          <span class="hljs-comment">//这是一个阻塞方法，一直等待直到有数据可读，返回值是key的数量（可以有多个）</span><br>            Set keys = selector.selectedKeys();         <span class="hljs-comment">//如果channel有数据了，将生成的key访入keys集合中</span><br>            Iterator iterator = keys.iterator();        <span class="hljs-comment">//得到这个keys集合的迭代器</span><br>            <span class="hljs-keyword">while</span> (iterator.hasNext())&#123;             <span class="hljs-comment">//使用迭代器遍历集合</span><br>                SelectionKey key = (SelectionKey) iterator.next();       <span class="hljs-comment">//得到集合中的一个key实例</span><br>                iterator.remove();          <span class="hljs-comment">//拿到当前key实例之后记得在迭代器中将这个元素删除，非常重要，否则会出错</span><br>                <span class="hljs-keyword">if</span> (key.isAcceptable())&#123;         <span class="hljs-comment">//判断当前key所代表的channel是否在Acceptable状态，如果是就进行接收</span><br>                    doAccept(key);<br>                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key.isReadable())&#123;<br>                    doRead(key);<br>                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key.isWritable() &amp;&amp; key.isValid())&#123;<br>                    doWrite(key);<br>                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key.isConnectable())&#123;<br>                    System.out.println(<span class="hljs-string">"连接成功！"</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doAccept</span><span class="hljs-params">(SelectionKey key)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        ServerSocketChannel serverChannel = (ServerSocketChannel) key.channel();<br>        System.out.println(<span class="hljs-string">"ServerSocketChannel正在循环监听"</span>);<br>        SocketChannel clientChannel = serverChannel.accept();<br>        clientChannel.configureBlocking(<span class="hljs-keyword">false</span>);<br>        clientChannel.register(key.selector(),SelectionKey.OP_READ);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doRead</span><span class="hljs-params">(SelectionKey key)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        SocketChannel clientChannel = (SocketChannel) key.channel();<br>        ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);<br>        <span class="hljs-keyword">long</span> bytesRead = clientChannel.read(byteBuffer);<br>        <span class="hljs-keyword">while</span> (bytesRead&gt;<span class="hljs-number">0</span>)&#123;<br>            byteBuffer.flip();<br>            <span class="hljs-keyword">byte</span>[] data = byteBuffer.array();<br>            String info = <span class="hljs-keyword">new</span> String(data).trim();<br>            System.out.println(<span class="hljs-string">"从客户端发送过来的消息是："</span>+info);<br>            byteBuffer.clear();<br>            bytesRead = clientChannel.read(byteBuffer);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (bytesRead==-<span class="hljs-number">1</span>)&#123;<br>            clientChannel.close();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doWrite</span><span class="hljs-params">(SelectionKey key)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);<br>        byteBuffer.flip();<br>        SocketChannel clientChannel = (SocketChannel) key.channel();<br>        <span class="hljs-keyword">while</span> (byteBuffer.hasRemaining())&#123;<br>            clientChannel.write(byteBuffer);<br>        &#125;<br>        byteBuffer.compact();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        MyNioServer myNioServer = <span class="hljs-keyword">new</span> MyNioServer();<br>        myNioServer.initServer();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>客户端代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> cn.blog.test.NioTest;<br><br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.net.InetSocketAddress;<br><span class="hljs-keyword">import</span> java.nio.ByteBuffer;<br><span class="hljs-keyword">import</span> java.nio.channels.SelectionKey;<br><span class="hljs-keyword">import</span> java.nio.channels.Selector;<br><span class="hljs-keyword">import</span> java.nio.channels.SocketChannel;<br><span class="hljs-keyword">import</span> java.util.Iterator;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyNioClient</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Selector selector;          <span class="hljs-comment">//创建一个选择器</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> port = <span class="hljs-number">8686</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> BUF_SIZE = <span class="hljs-number">10240</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> ByteBuffer byteBuffer = ByteBuffer.allocate(BUF_SIZE);<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span>  <span class="hljs-title">initClient</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        <span class="hljs-keyword">this</span>.selector = Selector.open();<br>        SocketChannel clientChannel = SocketChannel.open();<br>        clientChannel.configureBlocking(<span class="hljs-keyword">false</span>);<br>        clientChannel.connect(<span class="hljs-keyword">new</span> InetSocketAddress(port));<br>        clientChannel.register(selector, SelectionKey.OP_CONNECT);<br>        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>)&#123;<br>            selector.select();<br>            Iterator&lt;SelectionKey&gt; iterator = selector.selectedKeys().iterator();<br>            <span class="hljs-keyword">while</span> (iterator.hasNext())&#123;<br>                SelectionKey key = iterator.next();<br>                iterator.remove();<br>                <span class="hljs-keyword">if</span> (key.isConnectable())&#123;<br>                    doConnect(key);<br>                &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (key.isReadable())&#123;<br>                    doRead(key);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doConnect</span><span class="hljs-params">(SelectionKey key)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        SocketChannel clientChannel = (SocketChannel) key.channel();<br>        <span class="hljs-keyword">if</span> (clientChannel.isConnectionPending())&#123;<br>            clientChannel.finishConnect();<br>        &#125;<br>        clientChannel.configureBlocking(<span class="hljs-keyword">false</span>);<br>        String info = <span class="hljs-string">"服务端你好!!"</span>;<br>        byteBuffer.clear();<br>        byteBuffer.put(info.getBytes(<span class="hljs-string">"UTF-8"</span>));<br>        byteBuffer.flip();<br>        clientChannel.write(byteBuffer);<br>        <span class="hljs-comment">//clientChannel.register(key.selector(),SelectionKey.OP_READ);</span><br>        clientChannel.close();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doRead</span><span class="hljs-params">(SelectionKey key)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        SocketChannel clientChannel = (SocketChannel) key.channel();<br>        clientChannel.read(byteBuffer);<br>        <span class="hljs-keyword">byte</span>[] data = byteBuffer.array();<br>        String msg = <span class="hljs-keyword">new</span> String(data).trim();<br>        System.out.println(<span class="hljs-string">"服务端发送消息："</span>+msg);<br>        clientChannel.close();<br>        key.selector().close();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        MyNioClient myNioClient = <span class="hljs-keyword">new</span> MyNioClient();<br>        myNioClient.initClient();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>IO 是同步阻塞的，一个线程只能处理一个链路，可以使用线程池来处理，但本质上还是同步的，当前线程只能阻塞到IO准备好为止，才能进行IO</p>
+<p>NIO Non-blocking IO/New IO 同步非阻塞，</p>
+<p>面向流和面向缓冲区：NIO是面向缓冲区的，将所有数据读到或者写到缓冲区再进行操作。</p>
+<p>通道： 通道是双向的，既可以写也可以读，不需要为输入输出单独建流。</p>
+<p>选择器：NIO通过选择器来监控多个通道的状态，这样无需为每一个单独的连接建立一个线程，可以实现单线程管理多个通道，提高系统效率。</p>
+<h2 id="Steam等流的一些知识"><a href="#Steam等流的一些知识" class="headerlink" title="Steam等流的一些知识"></a>Steam等流的一些知识</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/07/29/%E5%85%B6%E4%BB%96/%E7%AC%94%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">笔面试记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/06/30/%E5%B7%A5%E5%85%B7/maven/">
+                        <span class="hidden-mobile">maven</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    Copyright © 2019-2021 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备18020003号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

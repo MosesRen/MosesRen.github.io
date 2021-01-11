@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Jehu Ren">
+  <meta name="keywords" content="">
+  <title>zookeeper学习笔记 - Jehu</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"renjiahui.cn","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Jehu</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="zookeeper学习笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-30 00:00" pubdate>
+        2020年12月30日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">zookeeper学习笔记</h1>
+            
+            <div class="markdown-body">
+              <p>ZooKeeper是一个开源的分布式服务框架，为分布式应用提供协调服务，用来解决分布式应用中的数据管理问题，如：配置管理、域名服务、分布式同步、集群管理等</p>
+<h2 id="zookeeper应用场景"><a href="#zookeeper应用场景" class="headerlink" title="zookeeper应用场景"></a>zookeeper应用场景</h2><h3 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h3><p>在开发过程中需要获取一些配置，如果这些配置发生了改变的话，那么需要每一台的服务都去修改配置，针对这个问题，我们将一些公共的配置放在zookeeper的节点中，然后应用程序连接到zookeeper上，并监听配置的修改，这样就可以实现配置的管理。</p>
+<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p><strong>思路</strong></p>
+<ol>
+<li>首先zookeeper中我们可以创建一个/distributed_lock持久化节点</li>
+<li>然后再在/distributed_lock节点下创建自己的临时顺序节点，比如：/distributed_lock/task_00000000008</li>
+<li>获取所有的/distributed_lock下的所有子节点，并排序</li>
+<li>判读自己创建的节点是否最小值（第一位）</li>
+<li>如果是，则获取得到锁，执行自己的业务逻辑，最后删除这个临时节点。</li>
+<li>如果不是最小值，则需要监听自己创建节点前一位节点的数据变化，并阻塞。</li>
+<li>当前一位节点被删除时，我们需要通过递归来判断自己创建的节点是否在是最小的，如果是则执行5）；</li>
+<li>如果不是则执行6）（就是递归循环的判断）</li>
+</ol>
+<h3 id="集群管理"><a href="#集群管理" class="headerlink" title="集群管理"></a>集群管理</h3><p>集群管理的主要内容包括：节点（机器）增删及Master选取。</p>
+<p><strong>节点增删</strong>：所有机器约定在父目录GroupMembers下创建临时目录节点，然后监听父目录节点的子节点变化消息。一旦有机器挂掉，该机器与 zookeeper的连接断开，其所创建的临时目录节点被删除，所有其他机器都收到通知：某个兄弟目录被删除，于是，所有人都知道：它上船了。新机器加入 也是类似，所有机器收到通知：新兄弟目录加入，highcount又有了。</p>
+<p><strong>Master选取</strong>：所有机器创建临时顺序编号目录节点，每次选取编号最小的机器作为master就好。</p>
+<h2 id="zookeeper组成"><a href="#zookeeper组成" class="headerlink" title="zookeeper组成"></a>zookeeper组成</h2><ol>
+<li>文件系统</li>
+<li>通知机制</li>
+</ol>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p> ZooKeeper维护一个类似Linux文件系统的数据结构，用于存储数据</p>
+<ul>
+<li>数据模型结构是一种树形结构，由许多节点构成</li>
+<li>每个节点叫做ZNode（ZooKeeper Node）</li>
+<li>每个节点对应一个唯一路径，通过该路径来标识节点，如 /app1/p_2</li>
+<li>每个节点只能存储大约1M的数据</li>
+</ul>
+<h4 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h4><ul>
+<li><p>持久化目录节点 persistent</p>
+<p>客户端与服务器断开连接，该节点仍然存在</p>
+</li>
+<li><p>持久化顺序编号目录节点 persistent_sequential</p>
+<p>客户端与服务器断开连接，该节点仍然存在，此时节点会被顺序编号，如：000001、000002…</p>
+</li>
+<li><p>临时目录节点 ephemeral</p>
+<p>客户端与服务器断开连接，该节点会被删除</p>
+</li>
+<li><p>临时顺序编号目录节点 ephemeral_sequential</p>
+<p>客户端与服务器断开连接，该节点会被删除，此时节点会被顺序编号，如：000001、000002…</p>
+</li>
+</ul>
+<h3 id="通知机制"><a href="#通知机制" class="headerlink" title="通知机制"></a>通知机制</h3><p> ZooKeeper是一个基于观察者模式设计的分布式服务管理框架</p>
+<p>ZooKeeper负责管理和维护项目的公共数据，并授受观察者的注册（订阅）一旦这些数据发生化，ZooKeeper就会通知已注册的观察者此时观察者就可以做出相应的反应简单来说，客户端注册监听它关心的目录节点，当目录节点发生变化时，ZooKeeper会通知客户端<br>ZooKeeper是一个订阅中心（注册中心）</p>
+<h3 id="zookeeper集群"><a href="#zookeeper集群" class="headerlink" title="zookeeper集群"></a>zookeeper集群</h3><p><strong>tips:</strong>zookeeper集群，只要有半数以上的机器处于可用状态，那么集群就是可用的。因此一个集群通常是奇数的，因为5台和6台能提供服务的最少机器数都是一样的。</p>
+<h4 id="zk角色："><a href="#zk角色：" class="headerlink" title="zk角色："></a>zk角色：</h4><p>leader：负责投票的发起和决议，系统状态的更新，master？</p>
+<p>leaner：</p>
+<p>​    follower：处理来自client的请求，并参与投票</p>
+<p>​    observer:仅处理客户端的连接和请求，同时不参与投票，为了扩展系统，提高读取的速度和并发的能力。</p>
+<p>client: 客户端，请求发起方。</p>
+<p><strong>集群的数据一致性协议</strong>：ZAB协议（Zookeeper Atomic Broadcast（Zookeeper 原子广播协议））</p>
+<h4 id="选举过程"><a href="#选举过程" class="headerlink" title="选举过程"></a><strong>选举过程</strong></h4><h5 id="服务器初始化启动。"><a href="#服务器初始化启动。" class="headerlink" title="服务器初始化启动。"></a>服务器初始化启动。</h5><p><strong>(1) 每个Server发出一个投票</strong>。由于是初始情况，Server1和Server2都会将自己作为Leader服务器来进行投票，每次投票会包含所推举的服务器的myid和ZXID，使用(myid, ZXID)来表示，此时Server1的投票为(1, 0)，Server2的投票为(2, 0)，然后各自将这个投票发给集群中其他机器。</p>
+<p><strong>(2) 接受来自各个服务器的投票</strong>。集群的每个服务器收到投票后，首先判断该投票的有效性，如检查是否是本轮投票、是否来自LOOKING状态的服务器。</p>
+<p><strong>(3) 处理投票</strong>。针对每一个投票，服务器都需要将别人的投票和自己的投票进行PK，PK规则如下</p>
+<p><strong>· 优先检查ZXID</strong>。ZXID比较大的服务器优先作为Leader。</p>
+<p><strong>· 如果ZXID相同，那么就比较myid</strong>。myid较大的服务器作为Leader服务器。</p>
+<p>对于Server1而言，它的投票是(1, 0)，接收Server2的投票为(2, 0)，首先会比较两者的ZXID，均为0，再比较myid，此时Server2的myid最大，于是更新自己的投票为(2, 0)，然后重新投票，对于Server2而言，其无须更新自己的投票，只是再次向集群中所有机器发出上一次投票信息即可。</p>
+<p><strong>(4) 统计投票</strong>。每次投票后，服务器都会统计投票信息，判断是否已经有过半机器接受到相同的投票信息，对于Server1、Server2而言，都统计出集群中已经有两台机器接受了(2, 0)的投票信息，此时便认为已经选出了Leader。</p>
+<p><strong>(5) 改变服务器状态</strong>。一旦确定了Leader，每个服务器就会更新自己的状态，如果是Follower，那么就变更为FOLLOWING，如果是Leader，就变更为LEADING。</p>
+<h5 id="服务器运行期间无法和Leader保持连接。"><a href="#服务器运行期间无法和Leader保持连接。" class="headerlink" title="服务器运行期间无法和Leader保持连接。"></a>服务器运行期间无法和Leader保持连接。</h5><p>(1) <strong>变更状态</strong>。Leader挂后，余下的非Observer服务器都会讲自己的服务器状态变更为LOOKING，然后开始进入Leader选举过程。</p>
+<p>(2) <strong>每个Server会发出一个投票</strong>。在运行期间，每个服务器上的ZXID可能不同，此时假定Server1的ZXID为123，Server3的ZXID为122；在第一轮投票中，Server1和Server3都会投自己，产生投票(1, 123)，(3, 122)，然后各自将投票发送给集群中所有机器。</p>
+<p>(3) <strong>接收来自各个服务器的投票</strong>。与启动时过程相同。</p>
+<p>(4) <strong>处理投票</strong>。与启动时过程相同，此时，Server1将会成为Leader。</p>
+<p>(5) <strong>统计投票</strong>。与启动时过程相同。</p>
+<p>(6) <strong>改变服务器的状态</strong>。与启动时过程相同。</p>
+<h4 id="数据同步过程"><a href="#数据同步过程" class="headerlink" title="数据同步过程"></a>数据同步过程</h4><p>选完 leader 以后，zk 就进入状态同步过程。<br>1、leader 等待 server 连接；<br>2、follower 连接 leader，将最大的 zxid 发送给 leader；<br>3、leader 根据 follower 的 zxid 确定同步点；<br>4、完成同步后通知 follower 已经成为 uptodate 状态；<br>5、follower 收到 uptodate 消息后，又可以重新接受 client 的请求进行服务了。</p>
+<h4 id="zookeeper-写数据流程"><a href="#zookeeper-写数据流程" class="headerlink" title="zookeeper 写数据流程"></a>zookeeper 写数据流程</h4><p>1.Client向Zookeeper的Server1上写数据，发送一个写请求</p>
+<p>2.如果Server1不是Leader，那么Server1会把接收到的请求进一步转发给Leader,这个Leader会把写请求广播给各个Leader,各个Server写成功后就会通知Leader</p>
+<p>3.当Leader收到大多数Server数据写成功了，那么就说明数据写成功了，比如这里有三个节点，只有两个节点数据写成功了，就认为数据写成功了，写成功以后，Leader会告诉Server数据写成功了</p>
+<p>4.Server1会通知Client数据写成功了，这时就认为整个写操作成功</p>
+<h2 id="zookeeper协议"><a href="#zookeeper协议" class="headerlink" title="zookeeper协议"></a>zookeeper协议</h2><p>待补充。。。。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F/">zookeeper 分布式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/30/%E5%85%B6%E4%BB%96/Userful%20URL/">
+                        <span class="hidden-mobile">一些有价值的站点</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    Copyright © 2019-2021 <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        浙ICP备18020003号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
