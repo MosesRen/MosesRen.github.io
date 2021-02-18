@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.4k 字
+      4.5k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46
+      48
        分钟
     </span>
   
@@ -215,14 +215,13 @@
             <h1 style="display: none">数据库</h1>
             
             <div class="markdown-body">
-              <h2 id="mysql架构和简单流程"><a href="#mysql架构和简单流程" class="headerlink" title="mysql架构和简单流程"></a>mysql架构和简单流程</h2><h3 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h3><p>客户端：负责连接处理，认证等功能</p>
-<p>核心服务：负责 查询解析，优化，缓存，一些内置函数，还有存储过程，触发器，视图等。</p>
-<p>存储引擎：负责数据的存储，更新和检索，表的创建。</p>
-<h2 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h2><p>DDL,DML,DQL,DCL</p>
+              <h2 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h2><p>DDL,DML,DQL,DCL</p>
 <p>数据定义语言（Data Definition Language，DDL）</p>
 <p>数据操作语言（Data Manipulation Language，DML）</p>
 <p>数据查询语言（Data Query Language，DQL）</p>
 <p>数据控制语言（Data Control Language，DCL）</p>
+<h2 id="数据库三范式："><a href="#数据库三范式：" class="headerlink" title="数据库三范式："></a>数据库三范式：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs wiki">第一范式：要求有主键，并且要求每一个字段原子性不可再分<br>第二范式：要求所有非主键字段完全依赖主键，不能产生部分依赖<br>第三范式：所有非主键字段和主键字段之间不能产生传递依赖<br></code></pre></td></tr></table></figure>
+
 <h2 id="数据库基础"><a href="#数据库基础" class="headerlink" title="数据库基础"></a>数据库基础</h2><p>1.主键是能确定一条记录的唯一标识，比如，一条记录包括身份正号，姓名，年龄。<br>2.外键用于与另一张表的关联。是能确定另一张表记录的字段，用于保持数据的一致性</p>
 <p>主键的设计原则：</p>
 <ul>
@@ -233,14 +232,69 @@
 </ul>
 <p>数据库字段约束条件：</p>
 <p>UNSIGNED ：无符号，值从0开始，无负数<br>ZEROFILL：零填充，当数据的显示长度不够的时候可以使用前补0的效果填充至指定长度,字段会自动添加UNSIGNED<br>NOT NULL：非空约束，表示该字段的值不能为空<br>DEFAULT：表示如果插入数据时没有给该字段赋值，那么就使用默认值<br>PRIMARY KEY：主键约束，表示唯一标识，不能为空，且一个表只能有一个主键。一般都是用来约束id<br>AUTO_INCREMENT：自增长，只能用于数值列，而且配合索引使用,默认起始值从1开始，每次增长1<br>UNIQUE KEY：唯一值，表示该字段下的值不能重复，null除外。比如身份证号是一人一号的，一般都会用这个进行约束<br>FOREIGN KEY：外键约束，目的是为了保证数据的完成性和唯一性，以及实现一对一或一对多关系</p>
+<h2 id="mysql架构和简单流程"><a href="#mysql架构和简单流程" class="headerlink" title="mysql架构和简单流程"></a>mysql架构和简单流程</h2><h3 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h3><p>客户端：负责连接处理，认证等功能</p>
+<p>核心服务：负责 查询解析，优化，缓存，一些内置函数，还有存储过程，触发器，视图等。</p>
+<p>存储引擎：负责数据的存储，更新和检索，表的创建。</p>
 <p>MySQL常用数据类型：</p>
 <ol>
-<li>数据类型</li>
-</ol>
-<p><img src="../img/70-20191024104134154.png" srcset="/img/loading.gif" alt="img"></p>
-<ol>
-<li>字符串类型</li>
-<li>日期时间类型</li>
+<li><p>数据类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字节数</th>
+<th>带符号最小值</th>
+<th>带符号最大值</th>
+<th>不带符号最小值</th>
+<th>不带符号最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TINYINT</td>
+<td>1</td>
+<td>-128</td>
+<td>127</td>
+<td>0</td>
+<td>255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>2</td>
+<td>-32768</td>
+<td>32767</td>
+<td>0</td>
+<td>65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td>3</td>
+<td>-8388608</td>
+<td>8388607</td>
+<td>0</td>
+<td>16777215</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>4</td>
+<td>-2147483648</td>
+<td>2147483647</td>
+<td>0</td>
+<td>4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>8</td>
+<td>-9223372036854775808</td>
+<td>9223372036854775807</td>
+<td>0</td>
+<td>18446744073709551616</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>字符串类型</p>
+</li>
+<li><p>日期时间类型</p>
+</li>
 </ol>
 <h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>5.5之前默认MyISAM，之后默认InnoDB</p>
 <p>InnoDB：事务，行锁，外键约束，灾难恢复。MVCC（高并发事务）</p>
@@ -312,7 +366,6 @@
 </ul>
 <p><strong>读写锁详解:</strong></p>
 <p>共享锁和排他锁</p>
-<p><img src="../img/2918087499-5ac1c82d17044_articlex.png" srcset="/img/loading.gif" alt=""></p>
 <p><strong>意向锁：</strong></p>
 <p>在存在行级锁和表级锁的情况下，事务 T 想要对表 A 加 X 锁，就需要先检测是否有其它事务对表 A 或者表 A 中的任意一行加了锁，那么就需要对表 A 的每一行都检测一次，这是非常耗时的。</p>
 <p>意向锁在原来的 X/S 锁之上引入了 IX/IS，IX/IS 都是表锁，用来表示一个事务想要在表中的某个数据行上加 X 锁或 S 锁。有以下两个规定：</p>
@@ -363,7 +416,12 @@
 <p>水平切分：（行切分）如果一张表的行数据很大，那么在查询时会带来性能的下降（mysql大约500万条数据？待考证）</p>
 <p>可以考虑根据某些列进行分库分表，例如根据主键或者ID进行分表，查询时可以根据键值确定对应的库和表。选取的键应该可以承载大数据，且分布均匀，分表后各个表大小相当，且较容易建立键中计算库和表的规则。</p>
 <h2 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h2><p>就正常的缓存机制，没有很特殊的地方，缓存查询的结果。</p>
-<h2 id="数据库慢查询的优化"><a href="#数据库慢查询的优化" class="headerlink" title="数据库慢查询的优化"></a>数据库慢查询的优化</h2><h2 id="binlog，redo-log和undo-log的区别"><a href="#binlog，redo-log和undo-log的区别" class="headerlink" title="binlog，redo log和undo log的区别"></a>binlog，redo log和undo log的区别</h2><p>redo log 和undo log 是innoDB引擎</p>
+<h2 id="数据库慢查询的优化"><a href="#数据库慢查询的优化" class="headerlink" title="数据库慢查询的优化"></a>数据库慢查询的优化</h2><ol>
+<li>单次查询改为批量处理</li>
+<li>分页改流式处理</li>
+<li>减少返回的不必要的字段</li>
+</ol>
+<h2 id="binlog，redo-log和undo-log的区别"><a href="#binlog，redo-log和undo-log的区别" class="headerlink" title="binlog，redo log和undo log的区别"></a>binlog，redo log和undo log的区别</h2><p>redo log 和undo log 是innoDB引擎</p>
 <p><strong>Undo + Redo事务的简化过程</strong><br> 假设有A、B两个数据，值分别为1,2.<br> A.事务开始.<br> B.记录A=1到undo log.<br> C.修改A=3.<br> D.记录A=3到redo log.<br> E.记录B=2到undo log.<br> F.修改B=4.<br> G.记录B=4到redo log.<br> H.将redo log写入磁盘。<br> I.事务提交</p>
 <p>binlog 是mysql Service层的日志，记录每次操作的</p>
 

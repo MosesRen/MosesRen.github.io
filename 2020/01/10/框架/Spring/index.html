@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      3.9k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      45
+      47
        分钟
     </span>
   
@@ -325,8 +325,7 @@
 <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">.. 通配符，该通配符表示<span class="hljs-number">0</span>个或多个项，主要用于declaring-type-<span class="hljs-built_in">pattern</span>和param-<span class="hljs-built_in">pattern</span>中，如果用于declaring-type-<span class="hljs-built_in">pattern</span>中，则表示匹配当前包及其子包，如果用于param-<span class="hljs-built_in">pattern</span>中，则表示匹配<span class="hljs-number">0</span>个或多个参数。<br></code></pre></td></tr></table></figure>
 
 <p>可以使用&amp;&amp;、||、!、三种运算符来组合切点表达式，表示与或非的关系。</p>
-<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="SpringMVC运行原理"><a href="#SpringMVC运行原理" class="headerlink" title="SpringMVC运行原理"></a>SpringMVC运行原理</h3><p><img src="../img/70.png" srcset="/img/loading.gif" alt="img"></p>
-<p>流程说明：</p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="SpringMVC运行原理"><a href="#SpringMVC运行原理" class="headerlink" title="SpringMVC运行原理"></a>SpringMVC运行原理</h3><p>流程说明：</p>
 <p>（1）客户端（浏览器）发送请求，直接请求到DispatcherServlet（前端控制器）。</p>
 <p>（2）DispatcherServlet根据请求信息调用HandlerMapping，解析请求对应的Handler。</p>
 <p>（3）解析到对应的Handler后，开始由HandlerAdapter适配器处理。</p>
@@ -335,10 +334,11 @@
 <p>（6）ViewResolver会根据逻辑View查找实际的View。</p>
 <p>（7）DispaterServlet把返回的Model传给View。</p>
 <p>（8）通过View返回给请求者（浏览器）</p>
+<h3 id="SpringMVC-拦截器和过滤器"><a href="#SpringMVC-拦截器和过滤器" class="headerlink" title="SpringMVC 拦截器和过滤器"></a>SpringMVC 拦截器和过滤器</h3><p>Fliter依赖Servlet，Interceptor 依赖框架</p>
 <h2 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h2><p><em>@Autowired Spring</em> 容器查找并注入一个bean对象 按类去匹配</p>
 <p>@Required 注释应用于 bean 属性的 setter 方法</p>
 <p><em>@Qualifier</em> 指定注入一个bean对象 按名字去匹配</p>
-<p><em>@Resource</em><br>(1)、@Resource后面没有任何内容，默认通过name属性去匹配bean，找不到再按type去匹配<br>(2)、指定了name或者type则根据指定的类型去匹配bean<br>(3)、指定了name和type则根据指定的name和type去匹配bean，任何一个不匹配都将报错</p>
+<p><em>@Resource</em><br>(1) @Resource后面没有任何内容，默认通过name属性去匹配bean，找不到再按type去匹配<br>(2) 指定了name或者type则根据指定的类型去匹配bean<br>(3) 指定了name和type则根据指定的name和type去匹配bean，任何一个不匹配都将报错</p>
 <p><em>@Configuration</em>  带有 @Configuration 的注解类表示这个类可以使用 Spring IoC 容器作为 bean 定义的来源</p>
 <p>@import 注解允许从另一个配置类中加载 @Bean 定义。</p>
 <p><em>@Bean</em>  @Bean 注解告诉 Spring，一个 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。 </p>
@@ -352,6 +352,27 @@
 <p>附属品依赖于其他元素（方法，类，属性）</p>
 <p>本身没有任何作用，由外部程序解析产生作用</p>
 <p>注解携带的信息，对于不同修饰的对象有不同的意义，对于类而言，注解相当于类实现的一个接口，对于方法而言，注解相当于一个变量，对于属性而言，注解相当于一个值。</p>
+<h2 id="Spring-设计模式"><a href="#Spring-设计模式" class="headerlink" title="Spring 设计模式"></a>Spring 设计模式</h2><ul>
+<li><p>工厂模式</p>
+<p>使用beanFactory，ApplicationContext创建对象</p>
+</li>
+<li><p>单例模式</p>
+<p>默认的bean都是创建单例的，bean的其他作用域，prototype，request，session，global-session</p>
+</li>
+<li><p>代理模式</p>
+<p>SpringAOP使用的是动态代理，如果需要代理的对象是基于接口的，则使用JDK代理，如果是没有实现接口的对象则使用cglib进行代理。</p>
+</li>
+<li><p>模板模式</p>
+<p>spring提供了jdbcTemplate使用了模板模式。</p>
+</li>
+<li><p>观察者模式</p>
+<p>spring的event机制和监听机制是观察者模式的实现</p>
+</li>
+<li><p>适配器</p>
+</li>
+<li><p>装饰者</p>
+</li>
+</ul>
 
             </div>
             <hr>

@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      513 字
+      689 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      8
        分钟
     </span>
   
@@ -229,89 +229,45 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Integer x = <span class="hljs-number">2</span>;     <span class="hljs-comment">// 装箱  </span><br><span class="hljs-keyword">int</span> y = x;         <span class="hljs-comment">// 拆箱</span><br></code></pre></td></tr></table></figure>
 
 <table>
-
 <thead>
-
 <tr>
-
-<th>基本数据类型</th>
-
-<th>对应的包装类</th>
-
+<th align="left">基本数据类型</th>
+<th align="left">对应的包装类</th>
 </tr>
-
 </thead>
-
-<tbody>
-
-<tr>
-
-<td>**byte**</td>
-
-<td>**Byte**</td>
-
+<tbody><tr>
+<td align="left"><strong>byte</strong></td>
+<td align="left"><strong>Byte</strong></td>
 </tr>
-
 <tr>
-
-<td>**short**</td>
-
-<td>**Short**</td>
-
+<td align="left"><strong>short</strong></td>
+<td align="left"><strong>Short</strong></td>
 </tr>
-
 <tr>
-
-<td>**int**</td>
-
-<td>**Integer**</td>
-
+<td align="left"><strong>int</strong></td>
+<td align="left"><strong>Integer</strong></td>
 </tr>
-
 <tr>
-
-<td>**long**</td>
-
-<td>**Long**</td>
-
+<td align="left"><strong>long</strong></td>
+<td align="left"><strong>Long</strong></td>
 </tr>
-
 <tr>
-
-<td>**char**</td>
-
-<td>**Character**</td>
-
+<td align="left"><strong>char</strong></td>
+<td align="left"><strong>Character</strong></td>
 </tr>
-
 <tr>
-
-<td>**float**</td>
-
-<td>**Float**</td>
-
+<td align="left"><strong>float</strong></td>
+<td align="left"><strong>Float</strong></td>
 </tr>
-
 <tr>
-
-<td>**double**</td>
-
-<td>**Double**</td>
-
+<td align="left"><strong>double</strong></td>
+<td align="left"><strong>ouble</strong></td>
 </tr>
-
 <tr>
-
-<td>**boolean**</td>
-
-<td>**Boolean**</td>
-
+<td align="left"><strong>boolean</strong></td>
+<td align="left"><strong>Boolean</strong></td>
 </tr>
-
-</tbody>
-
-</table>
-
+</tbody></table>
 <h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>new Integer(123) 与 Integer.valueOf(123) 的区别在于：</p>
 <ul>
 <li>new Integer(123) 每次都会新建一个对象；</li>
@@ -338,6 +294,12 @@
 
 
 
+<h2 id="二、Java核心技术知识点"><a href="#二、Java核心技术知识点" class="headerlink" title="二、Java核心技术知识点"></a>二、Java核心技术知识点</h2><h3 id="多态和多态绑定"><a href="#多态和多态绑定" class="headerlink" title="多态和多态绑定"></a>多态和多态绑定</h3><p>一个对象变量可以指示多种实际类型的现象称为多态，在运行时能够自动选择适当的方法称为动态绑定</p>
+<h3 id="理解方法调用"><a href="#理解方法调用" class="headerlink" title="理解方法调用"></a>理解方法调用</h3><p>假设调用<strong>x.f(args)</strong>,x声明为类C的一个对象，则调用方法的详细过程为:</p>
+<ol>
+<li>编译器查看对象的声明类型和方法名，列举所有名为f的方法和父类中所有名为f的方法</li>
+<li>确定方法调用中的参数类型，如果存在与提供类型完全匹配的方法，则选择这个方法，这个过程称为<strong><em>重载解析</em></strong></li>
+</ol>
 
             </div>
             <hr>

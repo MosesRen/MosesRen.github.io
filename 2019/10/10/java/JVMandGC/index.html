@@ -246,10 +246,10 @@
 <h3 id="元空间-MetaSpace"><a href="#元空间-MetaSpace" class="headerlink" title="元空间 (MetaSpace)"></a>元空间 (MetaSpace)</h3><p>类的版本、字段、方法、接口等描述信息，类元信息</p>
 <h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>常量池信息（用于存放编译期生成的各种字面量和符号引用）</p>
 <p><img src="https://gitee.com/null_885_6403/pic/raw/master/img/20210111195946.jpg" srcset="/img/loading.gif" alt="img"></p>
-<h3 id="java-符号引用和直接引用"><a href="#java-符号引用和直接引用" class="headerlink" title="java 符号引用和直接引用"></a>java 符号引用和直接引用</h3><p>符号引用一般放在常量池中，在编译时，会用符号引用占位，在实际解析的时候才会转化为真正的对象地址。</p>
+<h3 id="java-符号引用和直接引用"><a href="#java-符号引用和直接引用" class="headerlink" title="java 符号引用和直接引用"></a>java 符号引用和直接引用</h3><p>符号引用一般放在常量池中，在编译时，会用符号引用占位，一般用限定符表示，在实际解析的时候才会转化为真正的对象地址。</p>
 <p>直接引用：</p>
 <p>1：直接指向目标的指针。（个人理解为：指向对象，类变量和类方法的指针）</p>
-<p>2：相对偏移量。      （指向实例的变量，方法的指针）</p>
+<p>2：相对偏移量。（指向实例的变量，方法的指针）</p>
 <p>3：一个间接定位到对象的句柄。</p>
 <h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>分配的堆外内存，元空间，（常量池分配在堆中）</p>
 <h2 id="JVM对象创建过程"><a href="#JVM对象创建过程" class="headerlink" title="JVM对象创建过程"></a>JVM对象创建过程</h2><p>以HotSpot虚拟机为例</p>
@@ -301,7 +301,11 @@
 <li>标记清除 效率问题，碎片问题</li>
 <li>复制算法 容量保证问题</li>
 <li>标记整理 标记+复制</li>
-<li>分代整理 新生代复制算法 老年代 标记清除/整理算法</li>
+<li>分代整理 <ul>
+<li>新生代复制算法 </li>
+<li>标记清除/整理算法</li>
+</ul>
+</li>
 </ul>
 <p>CMS+ParNew ParNew 多线程 新生代垃圾收集器，并行 CMS 老年代垃圾回收 标记清除（哈啰使用的垃圾收集器搭配）</p>
 <p>堆内存分配策略：</p>
