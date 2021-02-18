@@ -169,6 +169,97 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/02/18/java/List%E5%AD%A6%E4%B9%A0/">List学习</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/18/java/List%E5%AD%A6%E4%B9%A0/">
+          
+          
+            
+          
+          ArrayList and LinkedList联系与区别线程安全：都是线程不安全
+底层实现: arraylist 是数组，linkedlist是双向链表
+复杂度问题：对于插入来说，若ArrayList直接add 添加到最后一个，则复杂度为O(1),若指定位置插入和删除元素则复杂度为O(n-i)，而LinkedList采用链表，插入和删除的复杂度接近O(1)。
+是否支持快速随机访问： Linked
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-18 17:02" pubdate>
+              2021-02-18
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/java/">java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/01/12/%E5%85%B6%E4%BB%96/ER%E5%9B%BE%E5%AD%A6%E4%B9%A0/">ER图学习</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/01/12/%E5%85%B6%E4%BB%96/ER%E5%9B%BE%E5%AD%A6%E4%B9%A0/">
+          
+          
+            
+          
+          简介ER图，全名实体(Entity)关系(relation)关系，主要用于数据库设计的结构图，表示系统内的主要实体及其属性以及实体之间的关系。
+主要组成
+实体，可以理解类
+属性，实体具有的特性，类的字段
+关系，类之间的关系
+
+主要画法
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-12 11:32" pubdate>
+              2021-01-12
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/12/30/%E4%B8%AD%E9%97%B4%E4%BB%B6/zookeeper/">zookeeper学习笔记</a>
       </h1>
 
@@ -511,98 +602,6 @@ string
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6-MQ/">中间件 MQ</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/05/30/%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketMQ/">rocketMQ</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/05/30/%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketMQ/">
-          
-          
-            
-          
-          架构示意图
-
-组件介绍：NameServer：
-主要负责对于源数据的管理，包括了对于Topic和路由信息的管理。
-
-NameServer是一个功能齐全的服务器，其角色类似Dubbo中的Zookeeper，但NameServer与Zookeeper相比更轻量。主要是因为每个NameServer节点互相之间是独立的，没有任何信息交互。
-NameServer压力不会太大，平时主要开销是在维持心跳和提供T
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-05-30 00:00" pubdate>
-              2020-05-30
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6-MQ/">中间件 MQ</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/30/%E6%A1%86%E6%9E%B6/spring%E6%BA%90%E7%A0%81/">Spring源码解析</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/30/%E6%A1%86%E6%9E%B6/spring%E6%BA%90%E7%A0%81/">
-          
-          
-            
-          
-          Spring源码阅读ApplicationContext 相关类图
-
-Resource类图:
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-30 00:00" pubdate>
-              2020-04-30
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-Java/">框架学习 Java</a>
             
           </div>
         

@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      2.1k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      23
        分钟
     </span>
   
@@ -300,6 +300,35 @@
 <p>1.8版本：</p>
 <p>其中抛弃了原有的 Segment 分段锁，而采用了 <code>CAS + synchronized</code> 来保证并发安全性。</p>
 <p>扩容机制修改了原来的头插法，改为了将原来的node分为保留的和新加的桶里，原来位置的元素只可能在i位置和i+oldcCap位置(hash的特性)</p>
+<h2 id="常用工具类"><a href="#常用工具类" class="headerlink" title="常用工具类"></a>常用工具类</h2><h3 id="Arrays-工具类"><a href="#Arrays-工具类" class="headerlink" title="Arrays 工具类"></a>Arrays 工具类</h3><p> 常用方法</p>
+<ul>
+<li><strong>binarySearch</strong>(byte[] a, byte key) 使用二分搜索法来搜索指定的 byte 型数组，以获得指定的值。</li>
+<li><strong>binarySearch</strong>(byte[] a, int fromIndex, int toIndex, byte key) 使用二分搜索法来搜索指定的 byte 型数组的范围，以获得指定的值。</li>
+<li><strong>copyOf</strong>(byte[] original, int newLength) 复制指定的数组，截取或用 0 填充（如有必要），以使副本具有指定的长度。</li>
+<li><strong>copyOfRange</strong>(boolean[] original, int from, int to) 将指定数组的指定范围复制到一个新数组。</li>
+<li><strong>equals</strong>(byte[] a, byte[] a2) 如果两个指定的 byte 型数组彼此<em>相等</em>，则返回 true。</li>
+<li><strong>fill</strong>(byte[] a, byte val) 将指定的 byte 值分配给指定 byte 节型数组的<strong>每个</strong>元素。</li>
+<li><strong>sort</strong>(byte[] a) 对指定的 byte 型数组按数字升序进行排序。</li>
+<li><strong>sort</strong>(byte[] a, int fromIndex, int toIndex) 对指定 byte 型数组的指定范围按数字升序进行排序。</li>
+<li><strong>toString</strong>(byte[] a) 返回指定数组内容的字符串表示形式。</li>
+</ul>
+<p>sort算法timesort，归并加二分。</p>
+<h3 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a>Collections 工具类</h3><p> 常用方法</p>
+<ul>
+<li><strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements) 将所有指定元素添加到指定 collection 中。</li>
+<li><strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key) 使用二分搜索法搜索指定列表，以获得指定对象（实现Comparable接口）。</li>
+<li><strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c) 使用二分搜索法搜索指定列表，以获得指定对象（传入Comparator比较器）。</li>
+<li><strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src) 将所有元素从一个列表复制到另一个列表。</li>
+<li><strong>fill</strong>(List&lt;? super T&gt; list, T obj) 使用指定元素替换指定列表中的所有元素。</li>
+<li><strong>max</strong>(Collection&lt;? extends T&gt; coll) 根据元素的<em>自然顺序</em>，返回给定 collection 的最大元素。</li>
+<li><strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp) 根据指定比较器产生的顺序，返回给定 collection 的最大元素。</li>
+<li><strong>min</strong>(Collection&lt;? extends T&gt; coll) 根据元素的<em>自然顺序</em> 返回给定 collection 的最小元素。</li>
+<li><strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp) 根据元素的<em>自然顺序</em> 返回给定 collection 的最小元素。</li>
+<li><strong>reverse</strong>(List&lt;?&gt; list) 反转指定列表中元素的顺序。</li>
+<li><strong>sort</strong>(List<T> list) 根据元素的<em>自然顺序</em> 对指定列表按升序进行排序。</li>
+<li><strong>sort</strong>(List<T> list, Comparator&lt;? super T&gt; c) 根据元素的<em>自然顺序</em> 对指定列表按升序进行排序。</li>
+<li><strong>swap</strong>(List&lt;?&gt; list, int i, int j) 在指定列表的指定位置处交换元素。</li>
+</ul>
 
             </div>
             <hr>

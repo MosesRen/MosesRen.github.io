@@ -17,25 +17,9 @@
   <meta name="description" content="">
   <meta name="author" content="Jehu Ren">
   <meta name="keywords" content="">
-  <title>常用工具类 - Jehu</title>
+  <title>归档 - Jehu</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -63,7 +47,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -150,46 +134,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="常用工具类">
+            <span class="h2" id="subtitle" title="归档">
               
             </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2019-09-29 00:00" pubdate>
-        2019年9月29日 凌晨
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      639 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      8
-       分钟
-    </span>
-  
-
-  
-  
-</div>
 
             
           </div>
@@ -202,112 +149,46 @@
 
   <main>
     
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 41 篇文章</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2021</p>
+    
+    <a href="/2021/02/18/java/List%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">List学习</span>
+      <time style="float: right;">02-18</time>
+    </a>
+  
+    
+    <a href="/2021/01/12/%E5%85%B6%E4%BB%96/ER%E5%9B%BE%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">ER图学习</span>
+      <time style="float: right;">01-12</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">常用工具类</h1>
-            
-            <div class="markdown-body">
-              <h3 id="Arrays-工具类"><a href="#Arrays-工具类" class="headerlink" title="Arrays 工具类"></a>Arrays 工具类</h3><p> 常用方法</p>
-<ul>
-<li><strong>binarySearch</strong>(byte[] a, byte key) 使用二分搜索法来搜索指定的 byte 型数组，以获得指定的值。</li>
-<li><strong>binarySearch</strong>(byte[] a, int fromIndex, int toIndex, byte key) 使用二分搜索法来搜索指定的 byte 型数组的范围，以获得指定的值。</li>
-<li><strong>copyOf</strong>(byte[] original, int newLength) 复制指定的数组，截取或用 0 填充（如有必要），以使副本具有指定的长度。</li>
-<li><strong>copyOfRange</strong>(boolean[] original, int from, int to) 将指定数组的指定范围复制到一个新数组。</li>
-<li><strong>equals</strong>(byte[] a, byte[] a2) 如果两个指定的 byte 型数组彼此<em>相等</em>，则返回 true。</li>
-<li><strong>fill</strong>(byte[] a, byte val) 将指定的 byte 值分配给指定 byte 节型数组的<strong>每个</strong>元素。</li>
-<li><strong>sort</strong>(byte[] a) 对指定的 byte 型数组按数字升序进行排序。</li>
-<li><strong>sort</strong>(byte[] a, int fromIndex, int toIndex) 对指定 byte 型数组的指定范围按数字升序进行排序。</li>
-<li><strong>toString</strong>(byte[] a) 返回指定数组内容的字符串表示形式。</li>
-</ul>
-<p>sort算法timesort，归并加二分。</p>
-<h3 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a>Collections 工具类</h3><p> 常用方法</p>
-<ul>
-<li><strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements) 将所有指定元素添加到指定 collection 中。</li>
-<li><strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key) 使用二分搜索法搜索指定列表，以获得指定对象（实现Comparable接口）。</li>
-<li><strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c) 使用二分搜索法搜索指定列表，以获得指定对象（传入Comparator比较器）。</li>
-<li><strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src) 将所有元素从一个列表复制到另一个列表。</li>
-<li><strong>fill</strong>(List&lt;? super T&gt; list, T obj) 使用指定元素替换指定列表中的所有元素。</li>
-<li><strong>max</strong>(Collection&lt;? extends T&gt; coll) 根据元素的<em>自然顺序</em>，返回给定 collection 的最大元素。</li>
-<li><strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp) 根据指定比较器产生的顺序，返回给定 collection 的最大元素。</li>
-<li><strong>min</strong>(Collection&lt;? extends T&gt; coll) 根据元素的<em>自然顺序</em> 返回给定 collection 的最小元素。</li>
-<li><strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp) 根据元素的<em>自然顺序</em> 返回给定 collection 的最小元素。</li>
-<li><strong>reverse</strong>(List&lt;?&gt; list) 反转指定列表中元素的顺序。</li>
-<li><strong>sort</strong>(List<T> list) 根据元素的<em>自然顺序</em> 对指定列表按升序进行排序。</li>
-<li><strong>sort</strong>(List<T> list, Comparator&lt;? super T&gt; c) 根据元素的<em>自然顺序</em> 对指定列表按升序进行排序。</li>
-<li><strong>swap</strong>(List&lt;?&gt; list, int i, int j) 在指定列表的指定位置处交换元素。</li>
-</ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                  </div>
-                
+
+
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2019/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95note/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">算法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2019/09/23/java/java%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
-                        <span class="hidden-mobile">Java单元测试</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -397,15 +278,9 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
