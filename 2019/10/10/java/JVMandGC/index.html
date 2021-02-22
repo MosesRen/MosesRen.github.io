@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.2k 字
+      4.8k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      45
+      51
        分钟
     </span>
   
@@ -239,19 +239,24 @@
 <p>本地方法被执行的时候，在本地方法栈也会创建一个栈帧，用于存放该本地方法的局部变量表、操作数栈、动态链接、出口信息。</p>
 <p>方法执行完毕后相应的栈帧也会出栈并释放内存空间，也会出现 StackOverFlowError 和 OutOfMemoryError 两种异常。</p>
 <h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>Java 虚拟机所管理的内存中最大的一块，Java 堆是所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。</p>
-<p>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆（Garbage** Collected Heap）**.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden 空间、From Survivor、To Survivor 空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。</p>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区与 Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。虽然 Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做 Non-Heap（非堆），目的应该是与 Java 堆区分开来。</p>
+<p>Java 堆是垃圾收集器管理的主要区域，因此也被称作GC 堆<strong>（Garbage Collected Heap）</strong>.从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以 Java 堆还可以细分为：新生代和老年代：再细致一点有：Eden 空间、From Survivor、To Survivor 空间等。进一步划分的目的是更好地回收内存，或者更快地分配内存。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>方法区与 Java 堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的<strong>类信息、常量、静态变量、即时编译器编译后的代码</strong>等数据。虽然 Java 虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做 Non-Heap（非堆），目的应该是与 Java 堆区分开来。</p>
 <h4 id="方法区和永久代的关系："><a href="#方法区和永久代的关系：" class="headerlink" title="方法区和永久代的关系："></a>方法区和永久代的关系：</h4><p>JVM规范定义有方法区这么个概念和它的作用，并没有规定如何去实现它。那么，在不同的 JVM 上方法区的实现肯定是不同的了。 方法区和永久代的关系很像 Java 中接口和类的关系，类实现了接口，而永久代就是 HotSpot 虚拟机对虚拟机规范中方法区的一种实现方式。 </p>
 <h4 id="为什么要将永久代-PermGen-替换为元空间-MetaSpace-呢"><a href="#为什么要将永久代-PermGen-替换为元空间-MetaSpace-呢" class="headerlink" title="为什么要将永久代 (PermGen) 替换为元空间 (MetaSpace) 呢?"></a>为什么要将永久代 (PermGen) 替换为元空间 (MetaSpace) 呢?</h4><p>整个永久代有一个 JVM 本身设置固定大小上限，无法进行调整，而元空间使用的是直接内存，受本机可用内存的限制，并且永远不会得到 java.lang.OutOfMemoryError。你可以使用 <code>-XX：MaxMetaspaceSize</code> 标志设置最大元空间大小，默认值为 unlimited，这意味着它只受系统内存的限制。<code>-XX：MetaspaceSize</code> 调整标志定义元空间的初始大小如果未指定此标志，则 Metaspace 将根据运行时的应用程序需求动态地重新调整大小。</p>
 <h3 id="元空间-MetaSpace"><a href="#元空间-MetaSpace" class="headerlink" title="元空间 (MetaSpace)"></a>元空间 (MetaSpace)</h3><p>类的版本、字段、方法、接口等描述信息，类元信息</p>
-<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>常量池信息（用于存放编译期生成的各种字面量和符号引用）</p>
+<h3 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h3><p>常量池信息（用于存放编译期生成的各种字面量和符号引用）运行时常量池分配在元空间中，字符串常量池放在堆中</p>
 <p><img src="https://gitee.com/null_885_6403/pic/raw/master/img/20210111195946.jpg" srcset="/img/loading.gif" alt="img"></p>
 <h3 id="java-符号引用和直接引用"><a href="#java-符号引用和直接引用" class="headerlink" title="java 符号引用和直接引用"></a>java 符号引用和直接引用</h3><p>符号引用一般放在常量池中，在编译时，会用符号引用占位，一般用限定符表示，在实际解析的时候才会转化为真正的对象地址。</p>
 <p>直接引用：</p>
 <p>1：直接指向目标的指针。（个人理解为：指向对象，类变量和类方法的指针）</p>
 <p>2：相对偏移量。（指向实例的变量，方法的指针）</p>
 <p>3：一个间接定位到对象的句柄。</p>
-<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>分配的堆外内存，元空间，（常量池分配在堆中）</p>
+<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>分配的堆外内存，元空间，（字符串常量池分配在堆中）</p>
+<h2 id="Hotspot虚拟机对象"><a href="#Hotspot虚拟机对象" class="headerlink" title="Hotspot虚拟机对象"></a>Hotspot虚拟机对象</h2><p>在hotspot虚拟机中，对象的存储布局可以包括三部分：对象头，实例数据，对齐填充</p>
+<p>对象头包括：</p>
+<p>1.对象自身运行时数据：hashcode，GC分代年龄，锁状态标志，线程持有的锁，偏向线程ID，偏向时间戳等</p>
+<p>2.类型指针：对象指向他的类型元数据的指针</p>
+<p>3.实例数据</p>
 <h2 id="JVM对象创建过程"><a href="#JVM对象创建过程" class="headerlink" title="JVM对象创建过程"></a>JVM对象创建过程</h2><p>以HotSpot虚拟机为例</p>
 <h3 id="类的加载，连接和初始化"><a href="#类的加载，连接和初始化" class="headerlink" title="类的加载，连接和初始化"></a>类的加载，连接和初始化</h3><p>在使用某个类之前，JVM会确保这个类被加载，连接和初始化。</p>
 <p><strong>加载</strong> </p>
@@ -290,14 +295,33 @@
 <h2 id="垃圾回收的判断算法"><a href="#垃圾回收的判断算法" class="headerlink" title="垃圾回收的判断算法"></a>垃圾回收的判断算法</h2><p>引用计数法和可达性分析 GCroots对象</p>
 <h3 id="引用计数法："><a href="#引用计数法：" class="headerlink" title="引用计数法："></a>引用计数法：</h3><p>给对象中添加一个引用计数器，每当有一个地方引用它，计数器就加 1；当引用失效，计数器就减 1；任何时候计数器为 0 的对象就是不可能再被使用的。存在的问题：循环引用</p>
 <h3 id="可达性分析："><a href="#可达性分析：" class="headerlink" title="可达性分析："></a>可达性分析：</h3><p>从一些GC roots 的对象为起点，从这些结点向下搜索，结点走过的路径为引用链，如果一个对象到GC roots没有引用链的话，证明这个对象是不可用的，可进行垃圾回收的。</p>
-<h3 id="java-的引用分析"><a href="#java-的引用分析" class="headerlink" title="java 的引用分析"></a>java 的引用分析</h3><p>引用的类别：强引用，软引用，弱引用，虚引用</p>
+<p>GC roots的对象：</p>
+<pre><code>+ 栈中引用的对象
++ 静态属性引用的对象
++ 常量引用的对象
++ 本地方法栈引用的对象
++ 内部引用，系统类加载器
++ 同步锁持有的对象</code></pre><h3 id="java-的引用分析"><a href="#java-的引用分析" class="headerlink" title="java 的引用分析"></a>java 的引用分析</h3><p>引用的类别：强引用，软引用，弱引用，虚引用</p>
 <ul>
 <li>强引用  是指创建一个对象并把这个对象赋给一个引用变量，类似“Object obj=new Object()”这类的引用，普遍存在的引用。</li>
 <li>软引用  如果一个对象具有软引用，内存空间足够，垃圾回收器就不会回收它；采用softReference 创建</li>
 <li>弱引用  弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。在java中，用java.lang.ref.WeakReference类来表示。</li>
-<li>虚引用  果一个对象与虚引用关联，则跟没有引用与之关联一样，在任何时候都可能被垃圾回收器回收。采用 java.lang.ref.PhantomReference表示。</li>
+<li>虚引用  果一个对象与虚引用关联，则跟没有引用与之关联一样，在任何时候都可能被垃圾回收器回收。采用 java.lang.ref.PhantomReference表示。虚引用必须联合引用队列使用</li>
 </ul>
-<h2 id="收集算法"><a href="#收集算法" class="headerlink" title="收集算法"></a>收集算法</h2><ul>
+<p>对于软引用和弱引用和虚引用，我们希望当一个对象被gc掉的时候通知用户线程，进行额外的处理时，就需要使用引用队列了。<code>ReferenceQueue</code>即这样的一个对象，当一个obj被gc掉之后，其相应的包装类，即ref对象会被放入queue中。我们可以从queue中获取到相应的对象信息，同时进行额外的处理。比如反向操作，数据清理等。</p>
+<p>软弱引用，在引用对象被回收后进入引用队列，虚引用在回收前加入引用队列？</p>
+<p>软弱引用在回收后加入引用队列是为了在引用对象GC掉后通知进行</p>
+<h2 id="方法区垃圾收集"><a href="#方法区垃圾收集" class="headerlink" title="方法区垃圾收集"></a>方法区垃圾收集</h2><p>常量的回收：当常量没有地方引用时回收</p>
+<p>加载的类型的回收：</p>
+<pre><code>+ 所有实例已经回收
++ 类加载器已经回收
++ Class没有被引用，没办法通过反射访问</code></pre><h2 id="收集算法"><a href="#收集算法" class="headerlink" title="收集算法"></a>收集算法</h2><p>分代收集理论：</p>
+<ol>
+<li>大部分对象都是朝生夕灭</li>
+<li>熬过越多次垃圾收集的对象越难消亡</li>
+</ol>
+<p>根据这两个理论，垃圾收集器的原则，将java堆划分不同的区域，根据其年龄进行回收，提高垃圾收集的效率和开销</p>
+<ul>
 <li>标记清除 效率问题，碎片问题</li>
 <li>复制算法 容量保证问题</li>
 <li>标记整理 标记+复制</li>
@@ -308,6 +332,7 @@
 </li>
 </ul>
 <p>CMS+ParNew ParNew 多线程 新生代垃圾收集器，并行 CMS 老年代垃圾回收 标记清除（哈啰使用的垃圾收集器搭配）</p>
+<h3 id="根节点枚举"><a href="#根节点枚举" class="headerlink" title="根节点枚举"></a>根节点枚举</h3><p>在OopMap中记录引用，垃圾收集器不需要去遍历GC roots</p>
 <p>堆内存分配策略：</p>
 <ul>
 <li>对象优先在eden区上分配</li>
@@ -327,7 +352,7 @@
 <p>Serial 系列的收集器：优点没有线程交互的开销，简单高效，需要有一个停顿时间，stop the world</p>
 <p><strong>ParNew收集器(复制算法)</strong></p>
 <p>新生代收集器，可以认为是Serial收集器的多线程版本,在多核CPU环境下有着比Serial更好的表现。可以和CMS配合。新生代首选垃圾收集器</p>
-<p>Paralled系列，<strong>CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。所谓吞吐量就是 CPU 中用于运行用户代码的时间与 CPU 总消耗时间的比值。</strong></p>
+<h3 id="Paralled系列"><a href="#Paralled系列" class="headerlink" title="Paralled系列"></a>Paralled系列</h3><p><strong>CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。Paralled更关注应用的吞吐量，所谓吞吐量就是 CPU 中用于运行用户代码的时间与 CPU 总消耗时间的比值。</strong></p>
 <p><strong>Parallel Scavenge收集器(复制算法)</strong></p>
 <p>并行收集器，追求高吞吐量，高效利用CPU。吞吐量一般为99%， 吞吐量= 用户线程时间/(用户线程时间+GC线程时间)。适合后台应用等对交互相应要求不高的场景。</p>
 <p><strong>Parallel Old收集器(标记-整理算法)</strong></p>
@@ -370,6 +395,12 @@
 </li>
 </ul>
 <p><strong>G1 垃圾回收过程：</strong></p>
+<ul>
+<li>初始标记</li>
+<li>并发标记</li>
+<li>最终标记</li>
+<li>筛选回收</li>
+</ul>
 
             </div>
             <hr>
