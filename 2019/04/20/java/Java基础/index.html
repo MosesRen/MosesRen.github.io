@@ -324,6 +324,8 @@
 <h3 id="2-数字转字符串"><a href="#2-数字转字符串" class="headerlink" title="2. 数字转字符串"></a>2. 数字转字符串</h3><p>调用Integer的静态方法parseInt  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestNumber</span> </span>&#123;  <br>    <br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;  <br>    <br> String str = <span class="hljs-string">"999"</span>;  <br>    <br> <span class="hljs-keyword">int</span> i= Integer.parseInt(str);  <br>    <br> System.out.println(i);  <br>    <br> &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h2 id="String-Intern方法"><a href="#String-Intern方法" class="headerlink" title="String Intern方法"></a>String Intern方法</h2><p>仅考虑jdk1.8</p>
+<p>如果字符串常量池不存在对应的常量，则将</p>
 <h2 id="修饰符访问权限"><a href="#修饰符访问权限" class="headerlink" title="修饰符访问权限"></a>修饰符访问权限</h2><p>访问权限控制：</p>
 <p>public &gt; protected &gt; default &gt; private</p>
 <p>所有-&gt;其他包的非子类无法访问-&gt;子类无法访问-&gt;仅限本类</p>

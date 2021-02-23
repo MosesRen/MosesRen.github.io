@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      5.2k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      51
+      55
        分钟
     </span>
   
@@ -381,6 +381,13 @@
 <p>其中E、S属于年轻代，O与H属于老年代。</p>
 <p>Humongous表示大对象，一般当分配的对象大小大于等于region的一般是认为是H对象。</p>
 <p><strong>G1</strong> 内存分成小的region 每个reion有各自的分代属性，大小一致 分代不连续，搜索引用时要全盘扫描。</p>
+<p><strong>三色标记法</strong></p>
+<ul>
+<li>白：对象没有被标记到，标记阶段结束后，会被当做垃圾回收掉。</li>
+<li>灰：对象被标记了，但是它的field还没有被标记或标记完。 </li>
+<li>黑：对象被标记了，且它的所有field也被标记完了。</li>
+</ul>
+<p>并发标记过程中，</p>
 <h5 id="Card-Table"><a href="#Card-Table" class="headerlink" title="Card Table:"></a>Card Table:</h5><ul>
 <li>Card Table维护着所有的Card。Card Table的结构是一个字节数组，Card Table用这个数组映射着每一个Card</li>
 <li>Card中对象的引用发生改变时，Card在Card Table数组中对应的值被标记为dirty，就称这个Card被脏化了</li>
@@ -401,6 +408,29 @@
 <li>最终标记</li>
 <li>筛选回收</li>
 </ul>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p>加载-&gt;验证-&gt;准备-&gt;解析-&gt;初始化-&gt;使用-&gt;卸载</p>
+<p>加载，验证，准备，初始化，卸载这五个步骤的顺序是确定的，解析的时间是不确定的。</p>
+<p><strong>加载的时机</strong></p>
+<ol>
+<li>遇到new，getstatic，pusstatic，invokestatic<pre><code>new关键字实例化
+读取或者设置静态字段，调用静态方法</code></pre></li>
+<li>使用反射进行调用</li>
+<li>初始化类，发现父类未初始化</li>
+<li>虚拟机启动的主类</li>
+<li>jdk7的动态语言支持，methodHandle解析结果为REF_getStatic，REF_putStatic，REF_invokeStatic，REF_newInvokeSpecial</li>
+<li>接口设置默认方法，实现类初始化时要先初始化接口</li>
+</ol>
+<p>类加载的主要过程：</p>
+<p>通过类的全限定名获取类的二进制字节流</p>
+<p>将字节流中的静态存储结构转化为方法区的运行时数据结构</p>
+<p>在内存中生成该类的Class对象作为方法去各种数据的访问入口</p>
+<p>初始化</p>
+<p>执行类构造器<Cinit>()的过程，编译器将自动收集(按顺序)类变量的赋值语句和static语句块，父类必须在子类之前执行</p>
+<p><strong>类加载器</strong></p>
+<p>Boostrap ClassLoader  java_home/lib下指定文件名中的类，如rt.jar，tool.jar 无法直接在代码中使用</p>
+<p>extension ClassLoader java_home/lib/ext或者java.ext.dir指定目录下的类库</p>
+<p>Application ClassLoader classPath下的所有类库 一般程序用的类加载器</p>
+<p>双亲委派机制：</p>
 
             </div>
             <hr>
